@@ -64,7 +64,7 @@ nav.navbar .menu li a:focus {
   width: 100%;
 }
 
-.navbar .menu li:nth-last-child(4) {
+.navbar .menu li:nth-last-child(3) {
   margin-left: auto; /* empuja las dos últimas a la derecha */
 }
 
@@ -129,10 +129,13 @@ nav.navbar .menu li a:focus {
   top: 0;
   width: 100%;
   z-index: 1000;
-
 }
 
 .menu li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
   text-decoration: none;
   color: #000;
   font-weight: bold;
@@ -145,6 +148,12 @@ nav.navbar .menu li a:focus {
     text-align: center;
   }
 
+
+  /* Checkbox oculto */
+#menu-toggle {
+  display: none;
+}
+
 /* Ícono hamburguesa - oculto en escritorio */
 .menu-icon {
   display: none;
@@ -156,11 +165,6 @@ nav.navbar .menu li a:focus {
   left: 20px; /* esquina superior derecha */
   z-index: 1001;
   pointer-events:auto;
-}
-
-/* Checkbox oculto */
-#menu-toggle {
-  display: none;
 }
 
 /* Animacion */
@@ -209,35 +213,85 @@ header {
   top: 20px;
   right: 30px;
   cursor: pointer;
-  z-index: 10000;
+  
 }
-
 
 /* Responsive: a partir de 768px o menos */
 @media (max-width: 768px) {
 
-      /* Oculta menú horizontal */
+  .menu-icon {
+    display: block;
+  }
 
-  
   .menu {
-    display: none; /* oculto por defecto */
-    flex-direction: column;
-    justify-content: center;   /* centra vertical */
-    align-items: center;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 100%;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    right: -100%; /* ⛔️ Oculto por defecto */
+    width: 70%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    z-index: 9999;
+    background: rgba(255, 255, 255, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.4s ease;
+    z-index: 1001;
+  }
+
+  .logo-img {
+
+  max-height: 200px;      /* 🔽 Reduce el tamaño del logo */
+  width: auto;
+  object-fit: contain;
+  
+}
+
+.logo {
+  position: absolute;
+  top: 70px;              /* 🔼 Sube el logo más hacia arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+    
+  
+}
+
+ 
+.menu li {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0; /* separa los enlaces sin romper alineación */
+}
+
+.menu li a {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+
+
+  /* ✅ Cuando se activa el checkbox, el menú aparece */
+  #menu-toggle:checked ~ .menu {
+    right: 0;
+  }
+
+
+  /* Asegura que los íconos sociales no se superpongan */
+  .social-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 900;
   }
 
   
-
       /* Centra el logo en móvil */
   .navbar {
     flex-direction: column;
@@ -246,43 +300,12 @@ header {
     }
 
 
-
-  .menu li {
-    padding: 15px ;
-    margin: 10px 0;
-    text-align: right;
-  }
-
-  .menu li a {
-  text-decoration: none;
-  color: #000; /* Negro */
-  font-weight: bold;
-  font-size: 18px; /* Aumenta el tamaño de la letra */
-  transition: color 0.3s;
-  
-}
-
  .servicio-detalle {
     flex-direction: column;
   }
   .servicio-detalle.invertido {
     flex-direction: column;
   }
-
-
-  /* Mostrar ícono hamburguesa */
-  .menu-icon {
-    display: block;
-   
-  }
-
-  /* Cuando el checkbox está marcado, mostrar menú */
-  #menu-toggle:checked ~ .menu {
-
-    display: flex;
-   
-  }
-
    .social-icons {
     top: 35px;        /* más arriba en móvil */
     right: 80px;      /* pegado a la esquina */
@@ -297,6 +320,12 @@ header {
 
    .close-btn {
     display: block;
+    font-size: 36px;
+    color: #000;
+    position: absolute;
+    top: 20px;
+    left: -370px;
+    cursor: pointer;
   }
 
   .proyecto {
@@ -325,7 +354,9 @@ header {
     text-align: center;
   }
 
+
 }
+
 
 .video-container {
   position: relative;

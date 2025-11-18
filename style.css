@@ -75,7 +75,7 @@ nav.navbar .menu li a:focus {
   position: absolute;
   display: flex;
   gap: 15px;
-  top: 90px;
+  top: 120px;
   right: 10%;
 
 }
@@ -341,18 +341,100 @@ header {
     text-align: center;
   }
 
-  .contacto-section {
-    padding: 60px 10%;
-  }
+.contacto-section,
+.contacto-contenedor,
+.form,
+.input-field,
+.textarea-field {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
-  .contacto-contenedor {
-    flex-direction: column;
-    align-items: center;
-  }
+
+* {
+  box-sizing: border-box;
+}
+
 
   .info-contacto {
     text-align: center;
   }
+
+
+/* Efecto táctil en títulos de videos — versión móvil */
+.video-text {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Cuando el usuario toca el título */
+.video-text:active,
+.video-text:focus {
+    transform: scale(1.2);
+    filter: brightness(1.6);
+}
+
+/* Ajuste de acordeones en móvil (evita que se haga pequeño) */
+.acordeon-contenido,
+.acordeon-item,
+.acordeon-detalle {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 15px !important;   /* pequeño padding lateral */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Corrige alineación del texto/títulos dentro del acordeón */
+.acordeon-contenido p,
+.acordeon-contenido li,
+.acordeon-contenido h3,
+.acordeon-contenido h4 {
+    text-align: left !important;
+}
+
+/* ----- Acordeón en móvil ----- */
+
+/* Contenedor del acordeón (evita que se haga pequeño) */
+.accordion-menu {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 15px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* UL interno */
+.accordion-menu ul {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+/* Cada opción */
+.accordion-menu .opcion {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px 0;
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Asegura que no se salgan del contenedor */
+.bloque-video {
+    width: 100% !important;
+}
+
+
 
 
 }
@@ -794,6 +876,30 @@ html {
 /* ============================= */
 /* SECCIÓN DE CONTACTO - INYEXA  */
 /* ============================= */
+/* Colores de texto del formulario */
+.contacto-section,
+.contacto-section p,
+.contacto-section label,
+.contacto-section h2,
+.contacto-section h3,
+.contacto-section .info-contacto,
+.contacto-section a {
+    color: #ffffff !important;
+}
+
+/* Color del texto dentro de inputs */
+.contacto-section input,
+.contacto-section textarea {
+    color: #ffffff !important;
+}
+
+/* Placeholder en gris claro */
+.contacto-section input::placeholder,
+.contacto-section textarea::placeholder {
+    color: #bfbfbf !important;
+}
+
+
 
 .contacto-section {
   background-color: #0a0a0a;
